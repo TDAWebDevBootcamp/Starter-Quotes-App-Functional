@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function App(props) {
+function App() {
   const [quotes, cQuotes] = useState({
     content: "",
     author: "",
