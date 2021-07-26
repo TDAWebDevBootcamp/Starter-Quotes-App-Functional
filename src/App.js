@@ -1,34 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
+function App(props) {
+  const [quotes, cQuotes] = useState({
+    content: "",
+    author: "",
+    tags: [],
+  });
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      content: "",
-      author: "",
-      tags: []
-    }
-  }
-
-  componentDidMount(){
-    this.setState({
+  useEffect(() => {
+    cQuotes({
       content: "a quote we made up",
       author: "anon",
-      tags: ["quote", "stuff", "blah"]
-    })  
-  }
+      tags: ["quote", "stuff", "blah"],
+    });
+  }, []);
 
-  render() {
-    return (
-      <>
-        <h1>Quote of the day</h1>
-        <p><b>Content:</b> {this.state.content} </p>
-        <p><b>Author:</b> {this.state.author} </p>
-        <p><b>Tags:</b> {this.state.tags.join(", ")}</p>
-      </>
-    )
-  }
+  return (
+    <>
+      <h1>Quote of the day</h1>
+      <p>
+        <b>Content:</b> {quotes.content}{" "}
+      </p>
+      <p>
+        <b>Author:</b> {quotes.author}{" "}
+      </p>
+      <p>
+        <b>Tags:</b> {quotes.tags.join(", ")}
+      </p>
+    </>
+  );
 }
 
 export default App;
