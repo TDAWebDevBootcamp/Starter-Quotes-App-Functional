@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 function App() {
-  const [quotes, cQuotes] = useState({
+  const [quotes, changeQuotes] = useState({
     content: "",
     author: "",
     tags: [],
   });
 
   useEffect(() => {
-    cQuotes({
+    changeQuotes({
       content: "a quote we made up",
       author: "anon",
       tags: ["quote", "stuff", "blah"],
